@@ -1,10 +1,15 @@
 package controller;
 
+import Tm.StudentTm;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import model.Studentmodel;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class StudentController {
     public TableView tblStudentDetails;
@@ -23,6 +28,28 @@ public class StudentController {
     public Button btnSave;
     public Button Updatebtn;
     public Button deletebtn;
+
+    public void initialize(){
+        try{
+            colStudent.setCellFactory(new PropertyValueFactory<>("Id"));
+            colStudentName.setCellFactory(new PropertyValueFactory<>("name"));
+            colStudentEmail.setCellFactory(new PropertyValueFactory<>("email"));
+            colStudentContact.setCellFactory(new PropertyValueFactory<>("contact"));
+            colStudentAddress.setCellFactory(new PropertyValueFactory<>("address"));
+            colStudentNic.setCellFactory(new PropertyValueFactory<>("Nic"));
+
+            setStudentToTable(new StudentDataController().getAllStudent());
+        }
+    }
+
+    private  void setStudentToTable(ArrayList<Studentmodel>studentmodels){
+        ObservableList<StudentTm> obList = FXCollections.observableArrayList();
+        studentmodels.forEach(e->obList.add(new StudentTm(e.getId(), e.getName(), e.getEmail(),e.getContact(),e.getAddress(),e.getNIC())));
+    });
+    tblStudentDetails.setItems(oblist);
+}
+
+
 
     public void SaveStudentOnAction(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
         Studentmodel s1 = new Studentmodel(txtid.getText(),txtname.getText(),txtemail.getText(),txtcontact.getText(),txtaddress.getText(),txtnic.getText());
@@ -44,10 +71,11 @@ public class StudentController {
 
     public void DeleteOnAction(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
 
-        if (new StudentDataController().deleteStudent(txtid.getText())){
+       /* if (new StudentDataController().deleteStudent(txtid.getText())){
            new Alert(Alert.AlertType.CONFIRMATION,"Deleted").show();
        } else {
            new Alert(Alert.AlertType.WARNING, "Try Again").show();
-       }
+       }*/
     }
+
 }
