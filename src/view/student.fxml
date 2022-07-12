@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+
+<AnchorPane prefHeight="605.0" prefWidth="1050.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.StudentController">
+   <children>
+      <AnchorPane layoutX="-2.0" prefHeight="60.0" prefWidth="1050.0" style="-fx-background-color: #85929E;">
+         <children>
+            <Label layoutX="14.0" layoutY="8.0" prefHeight="40.0" prefWidth="148.0" text="Student Form">
+               <font>
+                  <Font size="22.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <Text layoutX="32.0" layoutY="133.0" strokeType="OUTSIDE" strokeWidth="0.0" text="StudentId" wrappingWidth="89.6142578125">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </Text>
+      <Text layoutX="377.0" layoutY="133.0" strokeType="OUTSIDE" strokeWidth="0.0" text="StudentName">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </Text>
+      <Text layoutX="761.0" layoutY="133.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </Text>
+      <Text layoutX="44.0" layoutY="248.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Contact">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </Text>
+      <Text layoutX="377.0" layoutY="246.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Address">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </Text>
+      <Text layoutX="710.0" layoutY="246.0" strokeType="OUTSIDE" strokeWidth="0.0" text="NIC">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </Text>
+      <TableView layoutX="36.0" layoutY="303.0" prefHeight="287.0" prefWidth="984.0">
+        <columns>
+          <TableColumn prefWidth="112.0" text="StudentId" />
+          <TableColumn prefWidth="166.0" text="StudentName" />
+            <TableColumn prefWidth="129.0" text="Email" />
+            <TableColumn prefWidth="187.0" text="Contact" />
+            <TableColumn prefWidth="200.0" text="Address" />
+            <TableColumn prefWidth="189.0" text="NIC" />
+        </columns>
+      </TableView>
+      <TextField layoutX="128.0" layoutY="113.0" prefHeight="40.0" prefWidth="197.0" />
+      <TextField layoutX="523.0" layoutY="110.0" prefHeight="40.0" prefWidth="187.0" />
+      <TextField layoutX="833.0" layoutY="115.0" prefHeight="40.0" prefWidth="187.0" />
+      <TextField layoutX="134.0" layoutY="225.0" prefHeight="40.0" prefWidth="197.0" />
+      <TextField layoutX="480.0" layoutY="225.0" />
+      <TextField layoutX="806.0" layoutY="230.0" />
+   </children>
+</AnchorPane>
