@@ -29,8 +29,8 @@ public class StudentController {
     public Button Updatebtn;
     public Button deletebtn;
 
-    public void initialize(){
-        try{
+    public void initialize() {
+        try {
             colStudent.setCellFactory(new PropertyValueFactory<>("Id"));
             colStudentName.setCellFactory(new PropertyValueFactory<>("name"));
             colStudentEmail.setCellFactory(new PropertyValueFactory<>("email"));
@@ -39,34 +39,39 @@ public class StudentController {
             colStudentNic.setCellFactory(new PropertyValueFactory<>("Nic"));
 
             setStudentToTable(new StudentDataController().getAllStudent());
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
         }
     }
 
-    private  void setStudentToTable(ArrayList<Studentmodel>studentmodels){
+    private void setStudentToTable(ArrayList<Studentmodel> studentmodels) {
         ObservableList<StudentTm> obList = FXCollections.observableArrayList();
-        studentmodels.forEach(e->obList.add(new StudentTm(e.getId(), e.getName(), e.getEmail(),e.getContact(),e.getAddress(),e.getNIC())));
-    });
-    tblStudentDetails.setItems(oblist);
-}
+        studentmodels.forEach(e ->
+                obList.add(new StudentTm(e.getId(), e.getName(), e.getEmail(), e.getContact(), e.getAddress(), e.getNIC())));
+                tblStudentDetails.setItems(obList);
+    }
+    
 
 
 
     public void SaveStudentOnAction(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
-        Studentmodel s1 = new Studentmodel(txtid.getText(),txtname.getText(),txtemail.getText(),txtcontact.getText(),txtaddress.getText(),txtnic.getText());
+        Studentmodel s1 = new Studentmodel(txtid.getText(), txtname.getText(), txtemail.getText(), txtcontact.getText(), txtaddress.getText(), txtnic.getText());
 
         if (new StudentDataController().saveStudent(s1))
-             new Alert(Alert.AlertType.CONFIRMATION,"Saved...").show();
+            new Alert(Alert.AlertType.CONFIRMATION, "Saved...").show();
         else
-            new Alert(Alert.AlertType.CONFIRMATION,"Try Again...").show();
+            new Alert(Alert.AlertType.CONFIRMATION, "Try Again...").show();
     }
 
     public void UpdateStudentOnAction(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
-        Studentmodel s1 = new Studentmodel(txtid.getText(),txtname.getText(),txtemail.getText(),txtcontact.getText(),txtaddress.getText(),txtnic.getText());
+        Studentmodel s1 = new Studentmodel(txtid.getText(), txtname.getText(), txtemail.getText(), txtcontact.getText(), txtaddress.getText(), txtnic.getText());
 
         if (new StudentDataController().updateStudent(s1))
-            new Alert(Alert.AlertType.CONFIRMATION,"Updated..").show();
-       else
-           new Alert(Alert.AlertType.CONFIRMATION,"Try Again").show();
+            new Alert(Alert.AlertType.CONFIRMATION, "Updated..").show();
+        else
+            new Alert(Alert.AlertType.CONFIRMATION, "Try Again").show();
     }
 
     public void DeleteOnAction(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
