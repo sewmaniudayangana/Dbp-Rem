@@ -1,6 +1,6 @@
 package model;
 
-public class Student {
+public class Studentmodel {
      private String id;
      private String name;
      private String email;
@@ -8,10 +8,10 @@ public class Student {
      private String address;
      private String NIC;
 
-     public Student() {
+     public Studentmodel() {
      }
 
-     public Student(String id, String name, String email, String contact, String address, String NIC) {
+     public Studentmodel(String id, String name, String email, String contact, String address, String NIC) {
           this.setId(id);
           this.setName(name);
           this.setEmail(email);
